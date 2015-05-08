@@ -1,14 +1,10 @@
-{% extends '::base.html.twig' %}
+{% extends 'MXZPCGBundle::main.html.twig' %}
 
-{% block body -%}
-    <h1>Characters</h1>
-
+{% block content %}
+    <h1>Character</h1>
     <table class="record_properties">
         <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
+        <td><table  vertical-aling="top">
         <tr>
             <th>Name</th>
             <td>{{ entity.name }}</td>
@@ -17,7 +13,7 @@
             <th>Level</th>
             <td>
                 <ul>{% for lvl in entity.level %}
-                        <li>{{ lvl }}</li>
+                        <li>{{ classes[loop.index0]["name"] }} - {{ lvl }}</li>
                     {% endfor %}</ul>
             </td>
         </tr>
@@ -30,22 +26,22 @@
             <td>
                 <table>
                     <tr>
-                        <td>STR:{{ entity.STR }}</td>
+                        <td>STR: {{ entity.STR.id }}</td><td> {{ entity.STR.modifier }}</td>
                     </tr>
                     <tr>
-                        <td>DEX:{{ entity.DEX }}</td>
+                        <td>DEX: {{ entity.DEX.id }}</td><td> {{ entity.DEX.modifier }}</td>
                     </tr>
                     <tr>
-                        <td>CON:{{ entity.CON }}</td>
+                        <td>CON: {{ entity.CON.id }}</td><td> {{ entity.CON.modifier }}</td>
                     </tr>
                     <tr>
-                        <td>INT:{{ entity.INTe }}</td>
+                        <td>INT: {{ entity.INTe.id }}</td><td> {{ entity.INTe.modifier }}</td>
                     </tr>
                     <tr>
-                        <td>WIS:{{ entity.WIS }}</td>
+                        <td>WIS: {{ entity.WIS.id }}</td><td> {{ entity.WIS.modifier }}</td>
                     </tr>
                     <tr>
-                        <td>CHA:{{ entity.CHA }}</td>
+                        <td>CHA: {{ entity.CHA.id }}</td><td> {{ entity.CHA.modifier }}</td>
                     </tr>
                 </table>
             </td>
@@ -66,14 +62,7 @@
             <th>Initiative</th>
             <td>{{ entity.initiative }}</td>
         </tr>
-        <tr>
-            <th>Skills</th>
-            <td>
-                <ul>{% for skill in entity.skills %}
-                        <li>{{ skill }}</li>
-                    {% endfor %}</ul>
-            </td>
-        </tr>
+
         <tr>
             <th>Feats</th>
             <td>
@@ -83,7 +72,7 @@
             </td>
         </tr>
         <tr>
-            <th>Specialabilities</th>
+            <th>Special Abilities</th>
             <td>{{ entity.specialAbilities }}</td>
         </tr>
         <tr>
@@ -103,16 +92,25 @@
             <td>{{ entity.unspentFeats }}</td>
         </tr>
         <tr>
-            <th>Unspent Skills</th>
+            <th>Unspent Skill Points</th>
             <td>{{ entity.unspentSkills }}</td>
         </tr>
         <tr>
             <th>Unspent Ability Scores</th>
             <td>{{ entity.unspentAs }}</td>
         </tr>
+        </table></td>
+        <td><table><tr>
+            <th>Skills</th>
+            <td>
+                {% for skill in entity.skills %}
+                        <tr><td>{{ skills[loop.index0].skill }}</td><td>{{ skill }}</td></tr>
+                    {% endfor %}
+            </td>
+    </tr></table></td>
         </tbody>
     </table>
-
+</span>
     <ul class="record_actions">
         <li>
             <a href="{{ path('characters') }}">

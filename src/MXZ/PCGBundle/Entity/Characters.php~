@@ -305,7 +305,7 @@ class Characters
         return $this->xP;
     }
 
-    public function __construct($level = array(), $str = null, $dex = null, $con = null, $inte = null, $wis = null, $cha = null, $size = 'medium', $hP = 0, $dR = 0, $initiative = 0, $skills = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), $feats = array(), $special_abilities = '', $languages = '', $XP = 0, $unspent_levels = 0, $unspent_feats = 0, $unspent_skills = 0, $unspent_as = 0)
+    public function __construct($level = array(), $str = null, $dex = null, $con = null, $inte = null, $wis = null, $cha = null, $size = 'medium', $hP = 0, $dR = 0, $initiative = 0, $skills = array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), $feats = array(), $special_abilities = '', $languages = '', $XP = 0, $unspent_levels = 0, $unspent_feats = 0, $unspent_skills = 0, $unspent_as = 0, $lvl=0)
     {
 
         $this->STR = $str;
@@ -330,6 +330,7 @@ class Characters
         $this->unspent_feats = $unspent_feats;
         $this->unspent_levels = $unspent_levels;
         $this->unspent_skills = $unspent_skills;
+        $this->lvl=$lvl;
     }
 
     /**
@@ -704,4 +705,33 @@ class Characters
     {
         return $this->feats;
     }
+    /**
+     * @var integer
+     */
+    private $lvl;
+
+
+    /**
+     * Set lvl
+     *
+     * @param integer $lvl
+     * @return Characters
+     */
+    public function setLvl($lvl)
+    {
+        $this->lvl = $lvl;
+
+        return $this;
+    }
+
+    /**
+     * Get lvl
+     *
+     * @return integer 
+     */
+    public function getLvl()
+    {
+        return $this->lvl;
+    }
+
 }

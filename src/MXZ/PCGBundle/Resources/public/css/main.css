@@ -42,3 +42,34 @@ p{
     line-height: 1.4em;
     margin: 15px 0;
 }
+
+.nav-menu{
+    max-width: 250px;
+    margin: 0;
+    float: left;
+    position: relative;
+    top: 0;
+    height: 100%;
+}
+
+.nav-menu ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 236px;
+    margin: 10px 8px;
+}
+
+.nav-menu li{
+    background: #70060b;
+    border-bottom: 1px solid #4d0207;
+}
+
+.nav-menu a{
+    color: #fcfcfc;
+    display: block;
+    position: relative;
+    padding: 8px;
+    padding-right: 2em;
+    text-decoration: none;
+}

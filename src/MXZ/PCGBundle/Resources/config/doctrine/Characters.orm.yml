@@ -9,6 +9,12 @@ MXZ\PCGBundle\Entity\Characters:
             generator:
                 strategy: AUTO
     manyToOne:
+        player:
+            targetEntity: MXZ\UserBundle\Entity\User
+            inversedBy: characters
+            joinColumn:
+                name: player
+                referencedColumnName: id
         race:
             targetEntity: Races
             inversedBy: characters

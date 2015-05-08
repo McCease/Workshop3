@@ -1,15 +1,16 @@
 {% extends 'MXZPCGBundle::main.html.twig' %}
 
 {% block content %}
-    <h1>Character creation</h1>
+    <h1>Campaign edit</h1>
     {% form_theme form 'form_table_layout.html.twig' %}
-    {{ form(form) }}
+    {{ form(edit_form) }}
 
         <ul class="record_actions">
     <li>
-        <a href="{{ path('characters') }}">
+        <a href="{{ path('campaign') }}">
             Back to the list
         </a>
     </li>
+    <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

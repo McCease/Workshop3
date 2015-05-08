@@ -12,7 +12,9 @@ MXZ\UserBundle\Entity\User:
         campaign:
             targetEntity: Campaign
             mappedBy: gmid
-
+        characters:
+            targetEntity: MXZ\PCGBundle\Entity\Characters
+            mappedBy: player
     manyToMany:
         players:
             targetEntity: Campaign

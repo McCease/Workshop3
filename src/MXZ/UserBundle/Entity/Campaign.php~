@@ -3,6 +3,7 @@
 namespace MXZ\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Campaign
@@ -104,5 +105,28 @@ class Campaign
     public function getGmid()
     {
         return $this->gmid;
+    }
+
+    /**
+     * Add players
+     *
+     * @param \MXZ\UserBundle\Entity\User $players
+     * @return Campaign
+     */
+    public function addPlayer(\MXZ\UserBundle\Entity\User $players)
+    {
+        $this->players[] = $players;
+
+        return $this;
+    }
+
+    /**
+     * Remove players
+     *
+     * @param \MXZ\UserBundle\Entity\User $players
+     */
+    public function removePlayer(\MXZ\UserBundle\Entity\User $players)
+    {
+        $this->players->removeElement($players);
     }
 }

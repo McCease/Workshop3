@@ -1,34 +1,28 @@
 {% extends 'MXZPCGBundle::main.html.twig' %}
 
 {% block content %}
-    <h1>Characters list</h1>
+    <h1>Campaign list</h1>
 
     <table class="records_list">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Level</th>
-                <th>Alignment</th>
-                <th>Xp</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('characters_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('campaign_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
-                <td>{{ entity.lvl }}</td>
-                <td>{{ entity.alignment }}</td>
-                <td>{{ entity.xP }}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('characters_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('campaign_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('characters_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('campaign_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -39,7 +33,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('characters_new') }}">
+            <a href="{{ path('campaign_new') }}">
                 Create a new entry
             </a>
         </li>

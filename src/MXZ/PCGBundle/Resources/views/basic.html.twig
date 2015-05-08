@@ -5,9 +5,17 @@
     {% block stylesheets '' %}
 </head>
 <body>
-{% block header '' %}
-{% block menu '' %}
-{% block content '' %}
+<div class="header">
+    {% block header '' %}
+    <div class="nav-menu">
+        {% block menu '' %}
+    </div>
+</div>
+<div class="body-content">
+    <div class="body">
+        {% block content '' %}
+    </div>
+</div>
 {% block javascripts '' %}
 </body>
 </html>

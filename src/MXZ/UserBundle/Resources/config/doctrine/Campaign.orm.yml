@@ -18,6 +18,7 @@ MXZ\UserBundle\Entity\Campaign:
     manyToMany:
          players:
              targetEntity: User
+             inversedBy: players
              joinTable:
                  name: players_campaigns
                  joinColumns:

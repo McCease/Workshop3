@@ -1,8 +1,8 @@
-{% extends '::base.html.twig' %}
+{% extends 'MXZPCGBundle::main.html.twig' %}
 
-{% block body -%}
+{% block content %}
     <h1>Character leveling</h1>
-
+    {% form_theme addxp_form 'form_table_layout.html.twig' %}
     {{ form(addxp_form) }}
 
     <ul class="record_actions">

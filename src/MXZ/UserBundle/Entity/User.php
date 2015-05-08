@@ -105,4 +105,43 @@ class User extends BaseUser
     {
         return $this->players;
     }
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $characters;
+
+
+    /**
+     * Add characters
+     *
+     * @param \MXZ\PCGBundle\Entity\Characters $characters
+     * @return User
+     */
+    public function addCharacter(\MXZ\PCGBundle\Entity\Characters $characters)
+    {
+        $this->characters[] = $characters;
+
+        return $this;
+    }
+
+    /**
+     * Remove characters
+     *
+     * @param \MXZ\PCGBundle\Entity\Characters $characters
+     */
+    public function removeCharacter(\MXZ\PCGBundle\Entity\Characters $characters)
+    {
+        $this->characters->removeElement($characters);
+    }
+
+    /**
+     * Get characters
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCharacters()
+    {
+        return $this->characters;
+    }
 }

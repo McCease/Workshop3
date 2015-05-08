@@ -43,6 +43,10 @@ class CharactersController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user = $this->container->get('security.context')->getToken()->getUser();
+            $entity->setPlayer($user);
+            $race=$entity->getRace();
+            $entity->setSpecialAbilities($race->getTraits());
             $em->persist($entity);
             $em->flush();
 
@@ -98,6 +102,11 @@ class CharactersController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('MXZPCGBundle:Characters')->find($id);
+        $skills = $em->getRepository('MXZPCGBundle:Skills')->findAll();
+        $connection = $em->getConnection();
+        $statement = $connection->prepare("SELECT * FROM workshop3.classes");
+        $statement->execute();
+        $classes = $statement->fetchAll();
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Character entity.');
@@ -106,6 +115,8 @@ class CharactersController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('MXZPCGBundle:Characters:show.html.twig', array(
+            'skills' => $skills,
+            'classes' => $classes,
             'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));

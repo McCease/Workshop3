@@ -1,0 +1,30 @@
+campaign:
+    path:     /
+    defaults: { _controller: "MXZUserBundle:Campaign:index" }
+
+campaign_show:
+    path:     /{id}/show
+    defaults: { _controller: "MXZUserBundle:Campaign:show" }
+
+campaign_new:
+    path:     /new
+    defaults: { _controller: "MXZUserBundle:Campaign:new" }
+
+campaign_create:
+    path:     /create
+    defaults: { _controller: "MXZUserBundle:Campaign:create" }
+    methods:  POST
+
+campaign_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MXZUserBundle:Campaign:edit" }
+
+campaign_update:
+    path:     /{id}/update
+    defaults: { _controller: "MXZUserBundle:Campaign:update" }
+    methods:  [POST, PUT]
+
+campaign_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MXZUserBundle:Campaign:delete" }
+    methods:  [POST, DELETE]

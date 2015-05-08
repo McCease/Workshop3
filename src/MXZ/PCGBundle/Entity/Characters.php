@@ -733,4 +733,33 @@ class Characters
     {
         return $this->lvl;
     }
+
+    /**
+     * @var \MXZ\UserBundle\Entity\User
+     */
+    private $player;
+
+
+    /**
+     * Set player
+     *
+     * @param \MXZ\UserBundle\Entity\User $player
+     * @return Characters
+     */
+    public function setPlayer(\MXZ\UserBundle\Entity\User $player = null)
+    {
+        $this->player = $player;
+
+        return $this;
+    }
+
+    /**
+     * Get player
+     *
+     * @return \MXZ\UserBundle\Entity\User 
+     */
+    public function getPlayer()
+    {
+        return $this->player;
+    }
 }
